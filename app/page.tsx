@@ -4,7 +4,8 @@ import Link from 'next/link'
 
 /**
  * Composant de la page d'accueil
- * Affiche différents contenus selon que l'utilisateur est connecté ou non
+ * Redirige les utilisateurs connectés vers le tableau de bord
+ * Affiche une page d'accueil attrayante pour les utilisateurs non connectés
  */
 export default async function Home() {
   // Création du client Supabase
@@ -12,55 +13,64 @@ export default async function Home() {
   // Récupération des informations de l'utilisateur connecté
   const { data: { user } } = await supabase.auth.getUser()
 
-  /**
-   * Fonction de déconnexion
-   * Utilise une action serveur pour déconnecter l'utilisateur
-   */
-  const signOut = async () => {
-    'use server'
-    // Création du client Supabase
-    const supabase = await createClient()
-    // Déconnexion de l'utilisateur
-    await supabase.auth.signOut()
-    // Redirection vers la page de connexion
-    redirect('/login')
+  // Rediriger les utilisateurs connectés vers le tableau de bord
+  if (user) {
+    redirect('/dashboard')
   }
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm">
-        {/* Titre de l'application */}
-        <h1 className="text-4xl font-bold mb-8 text-center">SaaS Prospection Lead</h1>
+    <main className="flex min-h-screen flex-col items-center justify-center p-4 md:p-8">
+      <div className="w-full max-w-5xl">
+        {/* En-tête avec logo et titre */}
+        <div className="text-center mb-12">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gradient">LeadFinder</h1>
+          <p className="text-xl md:text-2xl max-w-2xl mx-auto">
+            Plateforme SaaS de prospection et génération de leads qualifiés pour entrepreneurs et commerciaux.
+          </p>
+        </div>
         
-        {/* Contenu conditionnel selon l'état de connexion */}
-        {user ? (
-          // Affichage pour un utilisateur connecté
-          <div className="bg-white p-8 rounded-lg shadow-md w-full">
-            <h2 className="text-2xl font-semibold mb-4">Bienvenue, {user.email}</h2>
-            <p className="mb-4">Vous êtes connecté à votre compte.</p>
-            {/* Formulaire de déconnexion */}
-            <form action={signOut}>
-              <button 
-                type="submit"
-                className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded"
-              >
-                Se déconnecter
-              </button>
-            </form>
+        {/* Cartes de fonctionnalités */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          <div className="card">
+            <div className="card-header">
+              <h3 className="text-xl font-semibold">Recherche avancée</h3>
+            </div>
+            <div className="card-body">
+              <p>Trouvez vos clients idéaux grâce à notre moteur de recherche avancé et nos filtres personnalisés.</p>
+            </div>
           </div>
-        ) : (
-          // Affichage pour un utilisateur non connecté
-          <div className="bg-white p-8 rounded-lg shadow-md w-full text-center">
-            <h2 className="text-2xl font-semibold mb-4">Vous n&apos;êtes pas connecté</h2>
-            {/* Lien vers la page de connexion */}
-            <Link 
-              href="/login"
-              className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
-            >
-              Se connecter
-            </Link>
+          
+          <div className="card">
+            <div className="card-header">
+              <h3 className="text-xl font-semibold">Profils de prospection</h3>
+            </div>
+            <div className="card-body">
+              <p>Créez des profils de prospection pour cibler précisément votre audience et automatiser vos recherches.</p>
+            </div>
           </div>
-        )}
+          
+          <div className="card">
+            <div className="card-header">
+              <h3 className="text-xl font-semibold">Suivi des leads</h3>
+            </div>
+            <div className="card-body">
+              <p>Gérez et suivez vos leads à travers tout le cycle de vente, de la découverte à la conversion.</p>
+            </div>
+          </div>
+        </div>
+        
+        {/* Appel à l'action */}
+        <div className="text-center">
+          <Link 
+            href="/login"
+            className="btn-primary inline-block text-lg px-8 py-3 rounded-lg"
+          >
+            Commencer maintenant
+          </Link>
+          <p className="mt-4 text-sm">
+            Déjà inscrit ? <Link href="/login" className="text-blue-600 dark:text-blue-400 hover:underline">Se connecter</Link>
+          </p>
+        </div>
       </div>
     </main>
   )
