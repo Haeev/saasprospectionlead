@@ -9,6 +9,12 @@ export const metadata: Metadata = {
   description: 'Application SaaS pour la gestion de leads de prospection commerciale',
 }
 
+/**
+ * Composant de layout racine
+ * Définit la structure de base de toutes les pages de l'application
+ * 
+ * @param children - Les composants enfants à rendre à l'intérieur du layout
+ */
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -16,7 +22,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        {/* Rendu des composants enfants */}
+        {children}
+      </body>
     </html>
   )
 } 

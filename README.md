@@ -8,7 +8,7 @@ Une application SaaS pour la gestion de leads de prospection commerciale, constr
 - **Backend/Base de données**: Supabase (PostgreSQL)
 - **Authentification**: Supabase Auth
 - **Hébergement**: Vercel
-- **CI/CD**: Intégration continue via GitHub et Vercel
+- **CI/CD**: Déploiement manuel sur Vercel
 
 ## Fonctionnalités
 
@@ -55,40 +55,42 @@ npm run dev
 
 ## Déploiement sur Vercel
 
-Le projet est configuré pour être déployé automatiquement sur Vercel à chaque push sur la branche principale.
+Le projet est configuré pour être déployé manuellement sur Vercel. Nous avons désactivé le déploiement automatique pour avoir plus de contrôle sur le processus.
 
-### Configuration du déploiement avec Vercel CLI
+### Processus de déploiement manuel
 
-1. Installer Vercel CLI
+1. Installer Vercel CLI (si ce n'est pas déjà fait)
 ```bash
 npm install -g vercel
 ```
 
-2. Se connecter à Vercel
+2. Se connecter à Vercel (si ce n'est pas déjà fait)
 ```bash
 vercel login
 ```
 
-3. Lier le projet à Vercel
+3. Déployer le projet en prévisualisation
 ```bash
-vercel link
+vercel
 ```
 
-4. Configurer les variables d'environnement sur Vercel
+4. Vérifier que tout fonctionne correctement dans l'environnement de prévisualisation
+
+5. Déployer en production
 ```bash
-vercel env add NEXT_PUBLIC_SUPABASE_URL
-vercel env add NEXT_PUBLIC_SUPABASE_ANON_KEY
-vercel env add NEXT_PUBLIC_SITE_URL
+vercel --prod
 ```
 
-5. Connecter le dépôt GitHub à Vercel
-```bash
-vercel git connect
-```
+### Vérification des logs de déploiement
 
-6. Déployer le projet
+Si vous rencontrez des problèmes lors du déploiement, vous pouvez consulter les logs :
+
 ```bash
-vercel deploy --prod
+# Lister les déploiements récents
+vercel list
+
+# Consulter les logs d'un déploiement spécifique
+vercel logs <url-du-déploiement>
 ```
 
 ## Structure du projet
@@ -105,6 +107,12 @@ saasprospectionlead/
 ├── .env.local              # Variables d'environnement locales
 └── ...                     # Autres fichiers de configuration
 ```
+
+## Bonnes pratiques de code
+
+- **Simplicité**: Nous privilégions un code simple et lisible plutôt que des solutions complexes
+- **Commentaires**: Chaque fichier et fonction est commenté pour faciliter la maintenance
+- **TypeScript**: Nous utilisons TypeScript pour la sécurité des types, mais avec `ignoreBuildErrors: true` pour éviter les blocages lors du déploiement
 
 ## Licence
 

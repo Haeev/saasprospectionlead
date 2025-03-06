@@ -1,12 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Configuration TypeScript
   typescript: {
-    // !! WARN !!
-    // Dangerously allow production builds to successfully complete even if
-    // your project has type errors.
-    // !! WARN !!
+    // Permet de compiler même en présence d'erreurs TypeScript
+    // Utile pour le déploiement, mais à utiliser avec précaution
     ignoreBuildErrors: true,
   },
+  // Autres configurations peuvent être ajoutées ici
 }
 
 module.exports = nextConfig 

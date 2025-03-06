@@ -1,0 +1,45 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+1. General Overview
+This project is a SaaS platform for lead generation and prospecting, designed to help entrepreneurs and businesses find qualified leads based on specific criteria. Users will be able to create a profile, define a geographical area, and obtain a list of businesses that match their criteria, including publicly available contact information.
+
+2. Core Functionalities
+User Profile Creation: Users can define their ideal customer profile based on industry, company size, location, and other relevant filters.
+Advanced Lead Search: The system must retrieve and filter company data based on predefined parameters.
+Lead Data Display: The platform should present lead information in an interactive and exportable format (CSV, Excel).
+Prospecting Automation: The system should allow users to manage and track leads efficiently.
+Dashboard and Analytics: A visual interface for users to monitor their lead searches and interactions.
+3. Technology Stack
+Frontend: Built with Next.js and hosted on Vercel.
+Backend & Database: Uses Supabase for authentication, data storage (PostgreSQL), and role-based access control.
+Deployment & Version Control: Managed via GitHub and deployments with Vercel.
+4. Compliance and Data Collection
+The project must comply with GDPR regulations, ensuring that only publicly available company data is used.
+Emails and phone numbers should only be retrieved if legally accessible through APIs or public sources.
+Users should be able to manage their own data and request deletions as required by GDPR.
+5. Security and Performance
+Authentication: Implement Supabase Auth for secure login (email/password and OAuth).
+Data Security: Protect user data through encrypted storage and strict database rules.
+Scalability: Ensure that the architecture can handle multiple users performing searches without slowdowns.
+6. Project Development and Workflow
+Version Control: All code must be committed to GitHub with clear commit messages.
+CI/CD Pipeline: Automatic deployments should be set up via Vercel.
+Modular Development: Features should be developed incrementally, ensuring stability before adding complexity.
+7. API and Third-Party Integrations
+Data retrieval should be done via Supabase APIs or external APIs such as OpenCorporates, INSEE, or LinkedIn Sales Navigator (if legally compliant).
+The platform must allow for integration with CRM systems to facilitate lead management.
+8. Business Model and Monetization
+The SaaS should operate on a subscription-based model, offering free limited access and premium tiers.
+Lead data exports and advanced filtering options should be part of premium plans.
+9. Rules for AI Assistance
+AI assistance should always follow the requirements outlined in this document.
+Features, security, and compliance must be respected in every AI-generated output.
+AI should provide modular, scalable, and legally compliant solutions at all times.
+By following these rules and principles, the project will ensure a structured and scalable approach while staying compliant with legal regulations and business requirements.
+# Your rule content
+
+- You can @ files here
+- You can use markdown but dont have to
