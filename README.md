@@ -53,17 +53,43 @@ npm run dev
 
 5. Ouvrir [http://localhost:3000](http://localhost:3000) dans votre navigateur
 
-## Déploiement
+## Déploiement sur Vercel
 
 Le projet est configuré pour être déployé automatiquement sur Vercel à chaque push sur la branche principale.
 
-### Configuration du déploiement
+### Configuration du déploiement avec Vercel CLI
 
-1. Connecter votre dépôt GitHub à Vercel
-2. Configurer les variables d'environnement dans Vercel:
-   - `NEXT_PUBLIC_SUPABASE_URL`
-   - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
-   - `NEXT_PUBLIC_SITE_URL`
+1. Installer Vercel CLI
+```bash
+npm install -g vercel
+```
+
+2. Se connecter à Vercel
+```bash
+vercel login
+```
+
+3. Lier le projet à Vercel
+```bash
+vercel link
+```
+
+4. Configurer les variables d'environnement sur Vercel
+```bash
+vercel env add NEXT_PUBLIC_SUPABASE_URL
+vercel env add NEXT_PUBLIC_SUPABASE_ANON_KEY
+vercel env add NEXT_PUBLIC_SITE_URL
+```
+
+5. Connecter le dépôt GitHub à Vercel
+```bash
+vercel git connect
+```
+
+6. Déployer le projet
+```bash
+vercel deploy --prod
+```
 
 ## Structure du projet
 
