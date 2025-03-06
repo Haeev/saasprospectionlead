@@ -2,48 +2,177 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  color: #333;
-  background: white;
+:root {
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+  --secondary: #f9fafb;
+  --secondary-hover: #f3f4f6;
+  --text: #1f2937;
+  --text-light: #6b7280;
+  --background: #ffffff;
+  --background-alt: #f9fafb;
+  --border: #e5e7eb;
+  --shadow: rgba(0, 0, 0, 0.1);
 }
 
+body {
+  color: var(--text);
+  background-color: var(--background);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: 
+    radial-gradient(circle at 25px 25px, rgba(79, 70, 229, 0.05) 2%, transparent 0%),
+    radial-gradient(circle at 75px 75px, rgba(79, 70, 229, 0.05) 2%, transparent 0%);
+  background-size: 100px 100px;
+}
+
+/* Boutons */
 .btn-primary {
-  background-color: #3b82f6;
+  background-color: var(--primary);
   color: white;
-  font-weight: bold;
-  padding: 0.5rem 1rem;
-  border-radius: 0.25rem;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 1px 2px 0 var(--shadow);
+  display: inline-block;
+  text-align: center;
 }
 
 .btn-primary:hover {
-  background-color: #2563eb;
+  background-color: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 .btn-secondary {
-  background-color: #e5e7eb;
-  color: #1f2937;
-  font-weight: bold;
-  padding: 0.5rem 1rem;
-  border-radius: 0.25rem;
+  background-color: var(--secondary);
+  color: var(--text);
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border);
+  transition: all 0.2s ease-in-out;
+  display: inline-block;
+  text-align: center;
 }
 
 .btn-secondary:hover {
-  background-color: #d1d5db;
+  background-color: var(--secondary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
 }
 
+/* Cartes */
 .card {
   background-color: white;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  border-radius: 0.5rem;
-  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  padding: 2rem;
+  transition: all 0.3s ease;
+  border: 1px solid var(--border);
 }
 
+.card:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transform: translateY(-5px);
+}
+
+/* Conteneurs */
 .section-container {
   max-width: 80rem;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  padding: 4rem 2rem;
+}
+
+/* Titres */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+/* Texte */
+p {
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+/* Liens */
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--primary-hover);
+}
+
+/* Grille pour les fonctionnalités */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .features-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Formulaires */
+input, textarea, select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  background-color: white;
+  color: var(--text);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+/* Effets spéciaux */
+.gradient-text {
+  background: linear-gradient(to right, #4f46e5, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
 }
