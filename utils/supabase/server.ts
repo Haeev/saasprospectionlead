@@ -18,7 +18,7 @@ export async function createClient() {
         remove(name: string, options: CookieOptions) {
           cookieStore.set({ name, value: '', ...options })
         },
-      },
+      } as any,
     }
   )
 } 

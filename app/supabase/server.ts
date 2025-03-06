@@ -1,7 +1,7 @@
 import { createServerClient, type CookieOptions } from '@supabase/ssr'
 import { cookies } from 'next/headers'
 
-export const createClient = () => {
+export const createClient = async () => {
   const cookieStore = cookies()
 
   return createServerClient(
@@ -18,7 +18,7 @@ export const createClient = () => {
         remove(name: string, options: CookieOptions) {
           cookieStore.set({ name, value: '', ...options })
         },
-      },
+      } as any,
     }
   )
 } 
