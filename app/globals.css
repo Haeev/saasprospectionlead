@@ -71,43 +71,120 @@ body {
 @layer components {
   /* Bouton principal */
   .btn-primary {
-    @apply px-6 py-3 bg-indigo-500 text-white rounded-full font-medium transition-all duration-300 hover:bg-indigo-600 hover:shadow-lg hover:shadow-indigo-200 transform hover:-translate-y-1;
+    padding: 0.75rem 1rem;
+    background-color: #6366f1;
+    color: white;
+    border-radius: 9999px;
+    font-weight: 500;
+    transition: all 0.3s;
+  }
+  
+  .btn-primary:hover {
+    background-color: #4f46e5;
+    box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.2);
+    transform: translateY(-2px);
   }
   
   /* Bouton secondaire */
   .btn-secondary {
-    @apply px-6 py-3 bg-white text-indigo-500 border border-indigo-200 rounded-full font-medium transition-all duration-300 hover:bg-indigo-50 hover:shadow-lg hover:shadow-indigo-100 transform hover:-translate-y-1;
+    padding: 0.75rem 1rem;
+    background-color: white;
+    color: #6366f1;
+    border: 1px solid #e0e7ff;
+    border-radius: 9999px;
+    font-weight: 500;
+    transition: all 0.3s;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #f5f7ff;
+    box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.1);
+    transform: translateY(-2px);
   }
   
   /* Carte */
   .card {
-    @apply bg-white rounded-2xl shadow-lg p-6 transition-all duration-300 hover:shadow-xl border border-gray-100 backdrop-blur-sm;
+    background-color: white;
     background: rgba(255, 255, 255, 0.9);
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    border: 1px solid #f3f4f6;
+    transition: all 0.3s;
+    padding: 1.5rem;
+    backdrop-filter: blur(4px);
+  }
+  
+  .card:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   }
   
   /* Carte avec effet de survol */
   .card-hover {
-    @apply transform transition-transform duration-300 hover:-translate-y-2;
+    transform: translateY(0);
+    transition: transform 0.3s;
+  }
+  
+  .card-hover:hover {
+    transform: translateY(-8px);
   }
   
   /* Badge */
   .badge {
-    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-indigo-100 text-indigo-800;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    background-color: #e0e7ff;
+    color: #4f46e5;
   }
   
   /* Conteneur de section */
   .section-container {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20;
+    max-width: 80rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  
+  @media (min-width: 640px) {
+    .section-container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .section-container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+    }
   }
   
   /* Grille de fonctionnalités */
   .features-grid {
-    @apply grid grid-cols-1 md:grid-cols-3 gap-8;
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 2rem;
+  }
+  
+  @media (min-width: 768px) {
+    .features-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
   }
   
   /* Élément flottant */
   .floating-element {
-    @apply absolute pointer-events-none opacity-70;
+    position: absolute;
+    pointer-events: none;
+    opacity: 0.7;
     animation: float 6s ease-in-out infinite;
   }
 }
@@ -173,15 +250,23 @@ body {
 
 /* Utilitaires personnalisés */
 .text-gradient {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-purple-500;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(to right, #6366f1, #a855f7);
 }
 
 .blur-backdrop {
-  @apply backdrop-blur-md bg-white/70 border border-white/20;
+  backdrop-filter: blur(8px);
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .glass-effect {
-  @apply backdrop-blur-lg bg-white/30 border border-white/30 shadow-lg;
+  backdrop-filter: blur(16px);
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 .dot-pattern {
@@ -199,7 +284,8 @@ body {
 /* Responsive */
 @media (max-width: 640px) {
   .section-container {
-    @apply py-8;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
 }
 
