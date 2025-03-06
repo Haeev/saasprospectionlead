@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { supabase } from '../../src/lib/supabase';
 
@@ -31,7 +31,20 @@ interface SearchFilters {
   keywords: string[];
 }
 
-export default function SearchPage() {
+// Composant de chargement
+function LoadingComponent() {
+  return (
+    <div className="flex items-center justify-center min-h-screen">
+      <div className="text-center">
+        <h1 className="text-2xl font-bold mb-4">Chargement de la page de recherche...</h1>
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500 mx-auto"></div>
+      </div>
+    </div>
+  );
+}
+
+// Composant principal de recherche
+function SearchPageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const profileId = searchParams.get('profile');
@@ -326,14 +339,7 @@ export default function SearchPage() {
   
   // Affichage d'un message de chargement pendant le chargement des données
   if (isLoading && !searchPerformed) {
-    return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="text-center">
-          <h1 className="text-2xl font-bold mb-4">Chargement de la page de recherche...</h1>
-          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500 mx-auto"></div>
-        </div>
-      </div>
-    );
+    return <LoadingComponent />;
   }
   
   return (
@@ -606,5 +612,14 @@ export default function SearchPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+// Composant principal avec Suspense
+export default function SearchPage() {
+  return (
+    <Suspense fallback={<LoadingComponent />}>
+      <SearchPageContent />
+    </Suspense>
   );
 } 
