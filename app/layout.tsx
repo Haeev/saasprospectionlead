@@ -24,7 +24,32 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fr" className="h-full">
-      <body className={`${inter.className} h-full bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300`}>
+      <head>
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            (function() {
+              try {
+                const theme = localStorage.getItem('theme-storage');
+                if (theme) {
+                  const parsedTheme = JSON.parse(theme);
+                  if (parsedTheme.state && parsedTheme.state.theme === 'dark') {
+                    document.documentElement.classList.add('dark');
+                  } else {
+                    document.documentElement.classList.remove('dark');
+                  }
+                } else {
+                  // Par défaut, utiliser le thème sombre
+                  document.documentElement.classList.add('dark');
+                }
+              } catch (e) {
+                // En cas d'erreur, utiliser le thème sombre par défaut
+                document.documentElement.classList.add('dark');
+              }
+            })();
+          `
+        }} />
+      </head>
+      <body className={`${inter.className} h-full theme-transition`}>
         <div className="flex flex-col min-h-screen">
           <Navbar />
           <main className="flex-grow">{children}</main>

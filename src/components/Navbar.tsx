@@ -28,7 +28,7 @@ export default function Navbar() {
   };
   
   return (
-    <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 transition-colors duration-300">
+    <nav className="theme-transition border-b">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           {/* Logo et liens de navigation */}
@@ -45,8 +45,8 @@ export default function Navbar() {
                 href="/dashboard" 
                 className={`inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium ${
                   pathname === '/dashboard' 
-                    ? 'border-blue-500 text-gray-900 dark:text-white' 
-                    : 'border-transparent text-gray-500 dark:text-gray-300 hover:text-gray-700 dark:hover:text-gray-200'
+                    ? 'border-blue-500' 
+                    : 'border-transparent hover:border-blue-300'
                 }`}
               >
                 Tableau de bord
@@ -56,8 +56,8 @@ export default function Navbar() {
                 href="/search" 
                 className={`inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium ${
                   pathname === '/search' 
-                    ? 'border-blue-500 text-gray-900 dark:text-white' 
-                    : 'border-transparent text-gray-500 dark:text-gray-300 hover:text-gray-700 dark:hover:text-gray-200'
+                    ? 'border-blue-500' 
+                    : 'border-transparent hover:border-blue-300'
                 }`}
               >
                 Recherche
@@ -67,8 +67,8 @@ export default function Navbar() {
                 href="/profiles/new" 
                 className={`inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium ${
                   pathname === '/profiles/new' 
-                    ? 'border-blue-500 text-gray-900 dark:text-white' 
-                    : 'border-transparent text-gray-500 dark:text-gray-300 hover:text-gray-700 dark:hover:text-gray-200'
+                    ? 'border-blue-500' 
+                    : 'border-transparent hover:border-blue-300'
                 }`}
               >
                 Nouveau profil
@@ -84,7 +84,7 @@ export default function Navbar() {
             </div>
             
             {/* Bouton de notification */}
-            <button className="p-2 rounded-full text-gray-500 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none">
+            <button className="p-2 rounded-full theme-transition">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
               </svg>
@@ -102,8 +102,8 @@ export default function Navbar() {
                       {user.email?.charAt(0).toUpperCase() || 'U'}
                     </div>
                   ) : (
-                    <div className="h-8 w-8 rounded-full bg-gray-300 dark:bg-gray-700 flex items-center justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 text-gray-600 dark:text-gray-300">
+                    <div className="h-8 w-8 rounded-full flex items-center justify-center theme-transition">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
                       </svg>
                     </div>
@@ -113,21 +113,21 @@ export default function Navbar() {
               
               {/* Menu déroulant du profil */}
               {isMenuOpen && (
-                <div className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5 z-10">
+                <div className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 theme-transition z-10">
                   {user ? (
                     <>
-                      <div className="px-4 py-2 text-sm text-gray-700 dark:text-gray-200 border-b border-gray-200 dark:border-gray-700">
+                      <div className="px-4 py-2 text-sm border-b theme-transition">
                         {user.email}
                       </div>
                       <Link 
                         href="/settings" 
-                        className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+                        className="block px-4 py-2 text-sm theme-transition"
                       >
                         Paramètres
                       </Link>
                       <button 
                         onClick={handleSignOut}
-                        className="block w-full text-left px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+                        className="block w-full text-left px-4 py-2 text-sm theme-transition"
                       >
                         Se déconnecter
                       </button>
@@ -136,7 +136,7 @@ export default function Navbar() {
                     <>
                       <Link 
                         href="/login" 
-                        className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+                        className="block px-4 py-2 text-sm theme-transition"
                       >
                         Se connecter
                       </Link>
@@ -150,7 +150,7 @@ export default function Navbar() {
             <div className="flex items-center sm:hidden ml-4">
               <button 
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="inline-flex items-center justify-center p-2 rounded-md text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none"
+                className="inline-flex items-center justify-center p-2 rounded-md theme-transition"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
@@ -167,10 +167,10 @@ export default function Navbar() {
           <div className="pt-2 pb-3 space-y-1">
             <Link 
               href="/dashboard" 
-              className={`block pl-3 pr-4 py-2 border-l-4 text-base font-medium ${
+              className={`block pl-3 pr-4 py-2 border-l-4 text-base font-medium theme-transition ${
                 pathname === '/dashboard' 
-                  ? 'border-blue-500 text-blue-700 dark:text-blue-400 bg-blue-50 dark:bg-gray-800' 
-                  : 'border-transparent text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700'
+                  ? 'border-blue-500' 
+                  : 'border-transparent'
               }`}
             >
               Tableau de bord
@@ -178,10 +178,10 @@ export default function Navbar() {
             
             <Link 
               href="/search" 
-              className={`block pl-3 pr-4 py-2 border-l-4 text-base font-medium ${
+              className={`block pl-3 pr-4 py-2 border-l-4 text-base font-medium theme-transition ${
                 pathname === '/search' 
-                  ? 'border-blue-500 text-blue-700 dark:text-blue-400 bg-blue-50 dark:bg-gray-800' 
-                  : 'border-transparent text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700'
+                  ? 'border-blue-500' 
+                  : 'border-transparent'
               }`}
             >
               Recherche
@@ -189,10 +189,10 @@ export default function Navbar() {
             
             <Link 
               href="/profiles/new" 
-              className={`block pl-3 pr-4 py-2 border-l-4 text-base font-medium ${
+              className={`block pl-3 pr-4 py-2 border-l-4 text-base font-medium theme-transition ${
                 pathname === '/profiles/new' 
-                  ? 'border-blue-500 text-blue-700 dark:text-blue-400 bg-blue-50 dark:bg-gray-800' 
-                  : 'border-transparent text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700'
+                  ? 'border-blue-500' 
+                  : 'border-transparent'
               }`}
             >
               Nouveau profil
