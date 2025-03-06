@@ -2,6 +2,86 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Configuration du thème sombre */
+.dark {
+  color-scheme: dark;
+}
+
+/* Styles de base */
+@layer base {
+  body {
+    @apply antialiased;
+  }
+  
+  /* Styles pour les scrollbars */
+  ::-webkit-scrollbar {
+    @apply w-2 h-2;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-100 dark:bg-gray-800;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 dark:bg-gray-600 rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-400 dark:bg-gray-500;
+  }
+}
+
+/* Composants personnalisés */
+@layer components {
+  /* Bouton principal */
+  .btn-primary {
+    @apply px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md transition-colors;
+  }
+  
+  /* Bouton secondaire */
+  .btn-secondary {
+    @apply px-4 py-2 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-800 dark:text-white rounded-md transition-colors;
+  }
+  
+  /* Carte */
+  .card {
+    @apply bg-white dark:bg-gray-800 rounded-xl shadow-sm overflow-hidden transition-colors duration-300;
+  }
+  
+  /* En-tête de carte */
+  .card-header {
+    @apply p-6 border-b border-gray-200 dark:border-gray-700;
+  }
+  
+  /* Corps de carte */
+  .card-body {
+    @apply p-6;
+  }
+  
+  /* Pied de carte */
+  .card-footer {
+    @apply p-6 bg-gray-50 dark:bg-gray-700 border-t border-gray-200 dark:border-gray-700;
+  }
+}
+
+/* Utilitaires personnalisés */
+@layer utilities {
+  /* Transition pour le thème */
+  .theme-transition {
+    @apply transition-colors duration-300;
+  }
+  
+  /* Dégradé de texte */
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400;
+  }
+  
+  /* Ombre douce */
+  .shadow-soft {
+    @apply shadow-md shadow-gray-200/50 dark:shadow-gray-900/30;
+  }
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
