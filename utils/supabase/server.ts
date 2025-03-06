@@ -1,6 +1,13 @@
 import { createServerClient, type CookieOptions } from '@supabase/ssr'
 import { cookies } from 'next/headers'
 
+// Type pour les fonctions de gestion des cookies
+interface CookieHandler {
+  get(name: string): string | undefined;
+  set(name: string, value: string, options: CookieOptions): void;
+  remove(name: string, options: CookieOptions): void;
+}
+
 /**
  * Crée et retourne un client Supabase pour utilisation côté serveur
  * Cette fonction est utilisée dans les composants serveur et les Server Actions
@@ -28,7 +35,7 @@ export async function createClient() {
         remove(name: string, options: CookieOptions) {
           cookieStore.set({ name, value: '', ...options })
         },
-      } as any, // Utilisation de 'any' pour éviter les erreurs de type
+      } as CookieHandler, // Utilisation d'une interface pour éviter le type any
     }
   )
 } 

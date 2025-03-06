@@ -51,7 +51,7 @@ export default async function Home() {
         ) : (
           // Affichage pour un utilisateur non connecté
           <div className="bg-white p-8 rounded-lg shadow-md w-full text-center">
-            <h2 className="text-2xl font-semibold mb-4">Vous n'êtes pas connecté</h2>
+            <h2 className="text-2xl font-semibold mb-4">Vous n&apos;êtes pas connecté</h2>
             {/* Lien vers la page de connexion */}
             <Link 
               href="/login"
