@@ -1,0 +1,92 @@
+1. Initialisation et Infrastructure
+[X] Dépôt GitHub créé et synchronisé avec Vercel et Supabase
+[X] Projet Next.js initialisé avec TypeScript et Tailwind CSS
+[X] Configuration des environnements (Vercel pour le déploiement, Supabase pour la base de données et l'authentification)
+[X] Variables d'environnement définies et stockées en sécurité (.env.local, Vercel)
+
+2. Configuration de la Base de Données (Supabase - PostgreSQL)
+[ ] Table users créée pour stocker les utilisateurs avec : ID, email, nom, rôle
+[X] Table leads pour stocker les entreprises avec : nom, adresse, secteur, téléphone, email (si disponible), site web
+[ ] Table profiles pour sauvegarder les critères de prospection des utilisateurs
+[ ] Table search_history pour enregistrer l'historique des recherches des utilisateurs
+[ ] Table lead_status pour suivre l'état des leads (contacté, en attente, etc.)
+[X] Sécurisation de l'accès aux données avec des politiques RLS (Row Level Security)
+[X] Authentification activée avec email/password et OAuth (Google, LinkedIn, etc.)
+
+3. Interface Utilisateur (Next.js + Tailwind CSS)
+[X] Page d'accueil avec une présentation du service et un bouton "Se connecter"
+[X] Page de connexion / inscription avec Supabase Auth (email + password)
+[ ] Tableau de bord affichant un aperçu des dernières recherches et leads enregistrés
+[ ] Formulaire de création de profil cible avec filtres dynamiques (secteur, localisation, taille d'entreprise, etc.)
+[ ] Page de recherche de leads avec affichage des résultats sous forme de tableau interactif
+[ ] Bouton d'exportation (CSV, Excel) pour télécharger les leads trouvés
+[ ] Gestion des utilisateurs (accès à leur profil, mise à jour des informations)
+[ ] Interface de gestion des abonnements et paiements
+[ ] Page de paramètres utilisateur (préférences, notifications, sécurité)
+
+4. Fonctionnalités de Recherche et Filtrage
+[ ] API de recherche connectée à Supabase pour récupérer les leads en fonction des critères définis
+[ ] Mise en place de filtres avancés (nom, secteur, localisation, taille, date de création)
+[ ] Recherche rapide avec auto-complétion pour faciliter l'usage
+[ ] Suggestions intelligentes basées sur les recherches précédentes
+[ ] Pagination et affichage performant des résultats
+[ ] Filtrage par codes NAF et domaines spécifiques
+[ ] Filtrage par rayon géographique autour d'une localisation
+[ ] Filtrage par présence web (site internet, réseaux sociaux)
+
+5. Tableau de Bord et Analytics
+[ ] Historique des recherches enregistrées
+[ ] Statistiques sur le nombre de leads trouvés, les recherches effectuées
+[ ] Graphiques et visualisations pour aider à la prise de décision
+[ ] Indicateurs de performance des campagnes de prospection
+[ ] Suivi du taux d'ouverture des emails et taux de réponse
+[ ] Recommandations personnalisées basées sur l'historique d'utilisation
+
+6. Automatisation de la Prospection
+[ ] Génération automatique d'emails de prospection personnalisés
+[ ] Intégration avec des CRM (HubSpot, Pipedrive) via API pour l'envoi et le suivi des leads
+[ ] Gestion des statuts des leads (contacté, en attente, relance, conclu)
+[ ] Planification et automatisation des campagnes d'emails
+[ ] Suggestions d'entreprises similaires basées sur les recherches précédentes
+[ ] Modèles de messages personnalisables pour différents contextes de prospection
+
+7. Collecte et Mise à Jour des Données
+[ ] Intégration avec des APIs externes (INSEE, OpenCorporates, etc.)
+[ ] Mise en place de web scraping légal pour les données publiques
+[ ] Système de mise à jour régulière des données
+[ ] Vérification de la qualité et validité des données collectées
+[ ] Enrichissement automatique des profils d'entreprises
+
+8. Sécurité et Respect du RGPD
+[X] Stockage des données uniquement publiques et conformité avec le RGPD
+[ ] Suppression des comptes et données à la demande des utilisateurs
+[X] Chiffrement des données sensibles (hashage des mots de passe avec Supabase Auth)
+[ ] Authentification 2FA pour renforcer la sécurité des accès
+[ ] Politique de confidentialité et conditions d'utilisation conformes au RGPD
+[ ] Système de gestion des consentements utilisateurs
+[ ] Journalisation des accès aux données sensibles
+
+9. Déploiement et Tests
+[X] Déploiement automatisé sur Vercel
+[ ] Vérification des performances et scalabilité
+[ ] Tests unitaires et end-to-end pour garantir la stabilité (Jest, Cypress)
+[ ] Simulations de recherche pour valider la pertinence des leads affichés
+[ ] Mise en place d'un environnement de staging pour les tests avant production
+[ ] Monitoring des performances et des erreurs (Sentry, LogRocket)
+[ ] Plan de reprise d'activité en cas de panne
+
+10. Monétisation et Plans d'Abonnement
+[ ] Mise en place d'un plan gratuit avec fonctionnalités limitées
+[ ] Intégration de Stripe pour la gestion des paiements des abonnements premium
+[ ] Définition des fonctionnalités payantes : nombre de recherches, exportation, intégration CRM
+[ ] Système de crédits à l'achat (paiement à l'usage)
+[ ] Gestion des factures et reçus automatisés
+[ ] Tableau de bord administrateur pour suivre les abonnements et revenus
+
+11. Marketing et Acquisition
+[ ] Mise en place d'un blog avec contenu SEO sur la prospection
+[ ] Intégration d'un système de parrainage et programme d'affiliation
+[ ] Landing pages spécifiques pour différents segments de clientèle
+[ ] Système de notifications et emails de réengagement
+[ ] Intégration d'outils d'analyse marketing (Google Analytics, Facebook Pixel)
+[ ] Mise en place d'un système de feedback et d'avis utilisateurs
