@@ -3,17 +3,45 @@
 // Import des fonctions et hooks nécessaires
 import { login, signup } from './actions'
 import { useSearchParams } from 'next/navigation'
+import { Suspense } from 'react'
+
+/**
+ * Composant qui affiche les messages d'erreur ou de succès
+ */
+function Messages() {
+  // Récupération des paramètres d'URL pour afficher les messages d'erreur ou de succès
+  const searchParams = useSearchParams()
+  const error = searchParams.get('error')
+  const message = searchParams.get('message')
+
+  return (
+    <>
+      {/* Affichage des messages d'erreur */}
+      {error && (
+        <div className="rounded-md bg-red-50 p-4">
+          <div className="flex">
+            <div className="text-sm text-red-700">{error}</div>
+          </div>
+        </div>
+      )}
+
+      {/* Affichage des messages de succès */}
+      {message && (
+        <div className="rounded-md bg-green-50 p-4">
+          <div className="flex">
+            <div className="text-sm text-green-700">{message}</div>
+          </div>
+        </div>
+      )}
+    </>
+  )
+}
 
 /**
  * Composant de la page de connexion/inscription
  * Permet aux utilisateurs de se connecter ou de créer un compte
  */
 export default function LoginPage() {
-  // Récupération des paramètres d'URL pour afficher les messages d'erreur ou de succès
-  const searchParams = useSearchParams()
-  const error = searchParams.get('error')
-  const message = searchParams.get('message')
-
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-2">
       {/* Conteneur principal du formulaire */}
@@ -25,23 +53,10 @@ export default function LoginPage() {
           </h2>
         </div>
 
-        {/* Affichage des messages d'erreur */}
-        {error && (
-          <div className="rounded-md bg-red-50 p-4">
-            <div className="flex">
-              <div className="text-sm text-red-700">{error}</div>
-            </div>
-          </div>
-        )}
-
-        {/* Affichage des messages de succès */}
-        {message && (
-          <div className="rounded-md bg-green-50 p-4">
-            <div className="flex">
-              <div className="text-sm text-green-700">{message}</div>
-            </div>
-          </div>
-        )}
+        {/* Messages d'erreur ou de succès avec Suspense boundary */}
+        <Suspense fallback={<div>Chargement...</div>}>
+          <Messages />
+        </Suspense>
 
         {/* Formulaire de connexion/inscription */}
         <form className="mt-8 space-y-6">
