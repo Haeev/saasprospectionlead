@@ -5,34 +5,34 @@
 [X] Variables d'environnement définies et stockées en sécurité (.env.local, Vercel)
 
 2. Configuration de la Base de Données (Supabase - PostgreSQL)
-[ ] Table users créée pour stocker les utilisateurs avec : ID, email, nom, rôle
+[X] Table users créée pour stocker les utilisateurs avec : ID, email, nom, rôle
 [X] Table leads pour stocker les entreprises avec : nom, adresse, secteur, téléphone, email (si disponible), site web
-[ ] Table profiles pour sauvegarder les critères de prospection des utilisateurs
-[ ] Table search_history pour enregistrer l'historique des recherches des utilisateurs
-[ ] Table lead_status pour suivre l'état des leads (contacté, en attente, etc.)
+[X] Table profiles pour sauvegarder les critères de prospection des utilisateurs
+[X] Table search_history pour enregistrer l'historique des recherches des utilisateurs
+[X] Table lead_status pour suivre l'état des leads (contacté, en attente, etc.)
 [X] Sécurisation de l'accès aux données avec des politiques RLS (Row Level Security)
 [X] Authentification activée avec email/password et OAuth (Google, LinkedIn, etc.)
 
 3. Interface Utilisateur (Next.js + Tailwind CSS)
 [X] Page d'accueil avec une présentation du service et un bouton "Se connecter"
 [X] Page de connexion / inscription avec Supabase Auth (email + password)
-[ ] Tableau de bord affichant un aperçu des dernières recherches et leads enregistrés
-[ ] Formulaire de création de profil cible avec filtres dynamiques (secteur, localisation, taille d'entreprise, etc.)
-[ ] Page de recherche de leads avec affichage des résultats sous forme de tableau interactif
-[ ] Bouton d'exportation (CSV, Excel) pour télécharger les leads trouvés
+[X] Tableau de bord affichant un aperçu des dernières recherches et leads enregistrés
+[X] Formulaire de création de profil cible avec filtres dynamiques (secteur, localisation, taille d'entreprise, etc.)
+[X] Page de recherche de leads avec affichage des résultats sous forme de tableau interactif
+[X] Bouton d'exportation (CSV, Excel) pour télécharger les leads trouvés
 [ ] Gestion des utilisateurs (accès à leur profil, mise à jour des informations)
 [ ] Interface de gestion des abonnements et paiements
 [ ] Page de paramètres utilisateur (préférences, notifications, sécurité)
 
 4. Fonctionnalités de Recherche et Filtrage
-[ ] API de recherche connectée à Supabase pour récupérer les leads en fonction des critères définis
-[ ] Mise en place de filtres avancés (nom, secteur, localisation, taille, date de création)
+[X] API de recherche connectée à Supabase pour récupérer les leads en fonction des critères définis
+[X] Mise en place de filtres avancés (nom, secteur, localisation, taille, date de création)
 [ ] Recherche rapide avec auto-complétion pour faciliter l'usage
-[ ] Suggestions intelligentes basées sur les recherches précédentes
-[ ] Pagination et affichage performant des résultats
-[ ] Filtrage par codes NAF et domaines spécifiques
-[ ] Filtrage par rayon géographique autour d'une localisation
-[ ] Filtrage par présence web (site internet, réseaux sociaux)
+[X] Suggestions intelligentes basées sur les recherches précédentes
+[X] Pagination et affichage performant des résultats
+[X] Filtrage par codes NAF et domaines spécifiques
+[X] Filtrage par rayon géographique autour d'une localisation
+[X] Filtrage par présence web (site internet, réseaux sociaux)
 
 5. Tableau de Bord et Analytics
 [ ] Historique des recherches enregistrées
