@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google';
 import Navbar from '../src/components/Navbar';
 import Footer from '../src/components/Footer';
 
+// Utilisation de la police Inter pour tout le site
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
@@ -24,33 +25,20 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fr" className="h-full">
-      <head>
-        <script dangerouslySetInnerHTML={{
-          __html: `
-            (function() {
-              try {
-                const theme = localStorage.getItem('theme-storage');
-                if (theme) {
-                  const parsedTheme = JSON.parse(theme);
-                  if (parsedTheme.state && parsedTheme.state.theme === 'dark') {
-                    document.documentElement.classList.add('dark');
-                  } else {
-                    document.documentElement.classList.remove('dark');
-                  }
-                } else {
-                  // Par défaut, utiliser le thème sombre
-                  document.documentElement.classList.add('dark');
-                }
-              } catch (e) {
-                // En cas d'erreur, utiliser le thème sombre par défaut
-                document.documentElement.classList.add('dark');
-              }
-            })();
-          `
-        }} />
-      </head>
-      <body className={`${inter.className} h-full theme-transition`}>
-        <div className="flex flex-col min-h-screen">
+      <body className={`${inter.className} h-full`}>
+        {/* Éléments flottants décoratifs */}
+        <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
+          {/* Cercle décoratif en haut à droite */}
+          <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-100 rounded-full filter blur-3xl opacity-20 animate-float"></div>
+          
+          {/* Cercle décoratif en bas à gauche */}
+          <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-purple-100 rounded-full filter blur-3xl opacity-20 animate-float delay-200"></div>
+          
+          {/* Points décoratifs */}
+          <div className="absolute top-1/4 left-1/4 w-full h-full dot-pattern opacity-30"></div>
+        </div>
+        
+        <div className="relative z-10 flex flex-col min-h-screen">
           <Navbar />
           <main className="flex-grow">{children}</main>
           <Footer />
