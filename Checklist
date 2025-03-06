@@ -16,23 +16,23 @@
 3. Interface Utilisateur (Next.js + Tailwind CSS)
 [X] Page d'accueil avec une présentation du service et un bouton "Se connecter"
 [X] Page de connexion / inscription avec Supabase Auth (email + password)
-[X] Tableau de bord affichant un aperçu des dernières recherches et leads enregistrés
-[X] Formulaire de création de profil cible avec filtres dynamiques (secteur, localisation, taille d'entreprise, etc.)
-[X] Page de recherche de leads avec affichage des résultats sous forme de tableau interactif
-[X] Bouton d'exportation (CSV, Excel) pour télécharger les leads trouvés
+[ ] Tableau de bord affichant un aperçu des dernières recherches et leads enregistrés
+[ ] Formulaire de création de profil cible avec filtres dynamiques (secteur, localisation, taille d'entreprise, etc.)
+[ ] Page de recherche de leads avec affichage des résultats sous forme de tableau interactif
+[ ] Bouton d'exportation (CSV, Excel) pour télécharger les leads trouvés
 [ ] Gestion des utilisateurs (accès à leur profil, mise à jour des informations)
 [ ] Interface de gestion des abonnements et paiements
 [ ] Page de paramètres utilisateur (préférences, notifications, sécurité)
 
 4. Fonctionnalités de Recherche et Filtrage
-[X] API de recherche connectée à Supabase pour récupérer les leads en fonction des critères définis
-[X] Mise en place de filtres avancés (nom, secteur, localisation, taille, date de création)
+[ ] API de recherche connectée à Supabase pour récupérer les leads en fonction des critères définis
+[ ] Mise en place de filtres avancés (nom, secteur, localisation, taille, date de création)
 [ ] Recherche rapide avec auto-complétion pour faciliter l'usage
-[X] Suggestions intelligentes basées sur les recherches précédentes
-[X] Pagination et affichage performant des résultats
-[X] Filtrage par codes NAF et domaines spécifiques
-[X] Filtrage par rayon géographique autour d'une localisation
-[X] Filtrage par présence web (site internet, réseaux sociaux)
+[ ] Suggestions intelligentes basées sur les recherches précédentes
+[ ] Pagination et affichage performant des résultats
+[ ] Filtrage par codes NAF et domaines spécifiques
+[ ] Filtrage par rayon géographique autour d'une localisation
+[ ] Filtrage par présence web (site internet, réseaux sociaux)
 
 5. Tableau de Bord et Analytics
 [ ] Historique des recherches enregistrées
